@@ -4,7 +4,8 @@ Title: Analysis of Arabidopsis thaliana root length parameter
 Version: 0.1.0
 Author: Erik  Ensminger 
 Maintainer: The package maintainer <erik.ensminger@mail.utoronto.ca>
-Description: More about what it does (maybe more than one line)
+Description: FastRPA is a package to interpret root growth data of Arabidopsis thaliana
+    
     Use four spaces when indenting paragraphs within the Description.
 License: MIT + file LICENSE
 Depends: R (>= 3.1.0)
