@@ -1,0 +1,4 @@
+analyseRootData <- function(inputFile, controlTreatment){
+
+
+}

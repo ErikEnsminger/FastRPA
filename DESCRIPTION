@@ -5,7 +5,6 @@ Version: 0.1.0
 Author: Erik  Ensminger 
 Maintainer: The package maintainer <erik.ensminger@mail.utoronto.ca>
 Description: FastRPA is a package to interpret root growth data of Arabidopsis thaliana
-    
     Use four spaces when indenting paragraphs within the Description.
 License: MIT + file LICENSE
 Depends: R (>= 3.1.0)

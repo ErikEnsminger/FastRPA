@@ -41,6 +41,6 @@ analyseRootData <- function(inputFile, controlTreatment, outputFile){
   # df2 <- transform(df2,  new = ISX / ControlMean)
   print(df2)
   # print("bye")
-  write.csv(df2, file = outputFile)
+  write.csv(df2, file = outputFile, row.names=FALSE)
   #Now need to average each column for the
 }
