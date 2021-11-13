@@ -1,5 +1,5 @@
 
-
+# precondition: the data to be plotted must have a "/" or any other non-number or non-alaphabetic character.
 #this function will create a bar graph with the corresponding data.
 
 #now I want to graph the normalized data. For this, the user needs to make sure
@@ -18,42 +18,37 @@ createRootBarG <- function(inputFile){
   #since users may want to start at different points in the analysis process.
 
   inputRootData <- inputRootData[order(inputRootData$geneLines),]
-  # print(inputRootData)
+
+
 
   # #average for the control treatment of inputRootData
-  # df2 <- inputRootData
-  # df2$ControlMean <- ave(inputRootData[[controlTreatment]], inputRootData$geneLines)
-  # print(df2)
 
-
-  # aveTreatmentData <- data.frame()
   i <- 1
   b <- 1
-  #newList <- list()
+  #newList <- list() #if I want to use a list
   mylist <- c()
   while (i <= ncol(inputRootData)) {
     name_of_col = colnames(inputRootData)[i]
 
     if ( grepl('[^[:alnum:]]', name_of_col) == TRUE){
-      #print(aggregate(inputRootData[[name_of_col]]~geneLines, inputRootData, mean))
-      mylist <- c(mylist, name_of_col)
-      #newList[[name_of_col]] <- name_of_col
-      b = b +1
 
+      #newList[[name_of_col]] <- name_of_col #if I want to use a list
+      mylist <- c(mylist, name_of_col)
+      b = b +1
     }
-    #print(i)
-    #print(name_of_col)
-    # aveTreatmentData[[name_of_col]] <- aggregate(inpputRootData$geneLines, )
-    # df2[[average_name_of_col]] <- df2[[name_of_col]] / df2$ControlMean
     i = i+1
   }
-  #print(newList)
-  #print(mylist)
 
-  print(aggregate(.~ geneLines, data = inputRootData[, c('geneLines', mylist)], mean))
+  #print(aggregate(.~ geneLines, data = inputRootData[, c('geneLines', mylist)], mean))
 
-  #print(aggregate(do.call(cbind,list(DRI, ISX))~geneLines, inputRootData, mean))
-  #print(aggregate(do.call(cbind,newList)~geneLines, inputRootData, mean))
+  aveTreatmentData <- aggregate(.~ geneLines, data = inputRootData[, c('geneLines', mylist)], mean)
+  print(aveTreatmentData)
+
+  #now need to output the data in a table and save it somewhere.
+
+
+
+
 
 
 
