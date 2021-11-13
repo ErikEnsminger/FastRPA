@@ -23,9 +23,6 @@ analyseRootData <- function(inputFile, controlTreatment){
   df2$ControlMean <- ave(inputRootData[[controlTreatment]], inputRootData$geneLines)
   print(df2)
 
-  #newdataframe <- data.frame()
-
-  # print(ncol(df2)) #tester
 
   #Divide each Treatment by the control treatment average
   max <- (ncol(df2)-2)
@@ -36,19 +33,14 @@ analyseRootData <- function(inputFile, controlTreatment){
     if (!(name_of_col == controlTreatment)){
       average_name_of_col <- paste(name_of_col, "/", controlTreatment)
       print(average_name_of_col)
-      df2 <- transform(df2, average_name_of_col = ISX / ControlMean)
+      df2[[average_name_of_col]] <- df2[[name_of_col]] / df2$ControlMean
     }
-
     i = i+1
-
-    #  df2[[]] <- d$min
   }
-
 
   # df2 <- transform(df2,  new = ISX / ControlMean)
   print(df2)
   # print("bye")
 
   #Now need to average each column for the
-
 }
