@@ -28,10 +28,14 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
       #   newcol <- outputRootData(rootLines)
       # }
       # rootTreatment %in% colnames(outputRootData)
-      outputRootData <- read.csv(file = outputFile, sep = ",", row.names = 1)
+      outputRootData <- read.csv(file = outputFile, sep = ",")
       newEntry <- data.frame(geneLines = rootLines, placeHolder2 = rootData$Longest.Shortest.Path[i])
       #names(newEntry)[names(newEntry) == "placeHolder1"] <- rootLines
       names(newEntry)[names(newEntry) == "placeHolder2"] <- rootTreatment #this is to replace the name of the column
+
+
+      #=======EITHER WHEN COMBINING OR WRITING MAKE SURE NOT THE INDEX OF ROWS IS ADDED AS NEW COLUMN =========
+
 
 
       combine <- merge(outputRootData, newEntry, all=TRUE)
