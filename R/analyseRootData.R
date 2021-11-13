@@ -10,7 +10,7 @@
 
 #then divide each treatment/avg of control.
 
-analyseRootData <- function(inputFile, controlTreatment){
+analyseRootData <- function(inputFile, controlTreatment, outputFile){
 
   inputRootData <- read.csv(file = inputFile, sep = ",")
   str(inputRootData) #testing purposes
@@ -41,6 +41,6 @@ analyseRootData <- function(inputFile, controlTreatment){
   # df2 <- transform(df2,  new = ISX / ControlMean)
   print(df2)
   # print("bye")
-
+  write.csv(df2, file = outputFile)
   #Now need to average each column for the
 }
