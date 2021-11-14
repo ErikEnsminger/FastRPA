@@ -44,13 +44,18 @@ createRootBarG <- function(inputFile){
   aveTreatmentData <- aggregate(.~ geneLines, data = inputRootData[, c('geneLines', mylist)], mean)
   print(aveTreatmentData)
 
+
   #now need to output the data in a table and save it somewhere.
 
 
+  # mydf <- data.frame( X1=c(A=2, B=4, C=1), X2=c(3,2,NA), X3=c(4,1,NA) )
+  # barplot(t(as.matrix(mydf)), beside=TRUE)
+  # print(mydf)
 
 
+  barplot(t(as.matrix(aveTreatmentData)), beside = TRUE)
 
-
+  #barplot(as.matrix(aveTreatmentData), beside=T , legend.text=T, ylim=c(0,140), ylab="height")
 
 
 
