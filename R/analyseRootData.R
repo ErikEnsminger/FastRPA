@@ -20,7 +20,7 @@ analyseRootData <- function(inputFile, controlTreatment, outputFile){
 
   #average for the control treatment of inputRootData
   df2 <- inputRootData
-  df2$ControlMean <- ave(inputRootData[[controlTreatment]], inputRootData$geneLines)
+  df2$ControlMean <- ave(inputRootData[[controlTreatment]], inputRootData$geneLines, FUN=function(x) mean(x, na.rm=TRUE))
   print(df2)
 
 
@@ -32,7 +32,7 @@ analyseRootData <- function(inputFile, controlTreatment, outputFile){
 
     if (!(name_of_col == controlTreatment)){
       average_name_of_col <- paste(name_of_col, "/", controlTreatment)
-      print(average_name_of_col)
+      print(average_name_of_col) #for testing purposes. Delete!!!!
       df2[[average_name_of_col]] <- df2[[name_of_col]] / df2$ControlMean
     }
     i = i+1

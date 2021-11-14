@@ -53,7 +53,7 @@ createRootBarG <- function(inputFile){
   # print(mydf)
 
 
-  barplot(t(as.matrix(aveTreatmentData)), beside = TRUE)
+  #barplot(t(as.matrix(aveTreatmentData)), beside = TRUE)
 
   #barplot(as.matrix(aveTreatmentData), beside=T , legend.text=T, ylim=c(0,140), ylab="height")
 

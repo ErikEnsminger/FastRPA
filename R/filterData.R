@@ -11,12 +11,12 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
   #read the input file
   rootData <- read.csv(file = inputFile, sep = ",")
 
-  filteredRootData <- data.frame(GeneLines = character(0))
+  filteredRootData <- data.frame(geneLines = character(0))
 
   #find the specific rois that need to be filtered.
   for (i in roi){
 
-      tempFrame <- data.frame(GeneLines = rootLines, placeHolder2 = rootData$Longest.Shortest.Path[i])
+      tempFrame <- data.frame(geneLines = rootLines, placeHolder2 = rootData$Longest.Shortest.Path[i])
       names(tempFrame)[names(tempFrame) == "placeHolder2"] <- rootTreatment #this is to replace the name of the column
 
       filteredRootData <- rbind.fill(filteredRootData, tempFrame)
@@ -32,7 +32,7 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
 
   write.csv(outputRootData, file = outputFile, row.names = FALSE)
 
-  print(filteredRootData)
-  print(outputRootData)
+  # print(filteredRootData)
+  # print(outputRootData)
 }
 
