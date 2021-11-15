@@ -1,4 +1,5 @@
-
+install.packages("reshape2")
+install.packages("ggplot2")
 # precondition: the data to be plotted must have a "/" or any other non-number or non-alaphabetic character.
 #this function will create a bar graph with the corresponding data.
 
@@ -43,20 +44,26 @@ createRootBarG <- function(inputFile){
 
   aveTreatmentData <- aggregate(.~ geneLines, data = inputRootData[, c('geneLines', mylist)], mean)
   print(aveTreatmentData)
-
-
-  #now need to output the data in a table and save it somewhere.
-
-  #this is the example datatable that is for showing the string
-  dataplotting <- data.frame( "GeneLines" =c("GK060G05.14", "SALK839"), "MS / DRI" =c(1.79, 1.41), "ISX / DRI"=c(0.863, 0.632))
-
-  print("this is the datatable")
-
-  str(dataplotting)
-
-
   #this is the actual datatable that I want to plot
   str(aveTreatmentData)
+
+  #now need to output the data in a table and save it somewhere.
+  dat <- aveTreatmentData
+  colnames(dat)
+
+  library("reshape2")
+  dat1 <- melt(dat,id=("geneLines"))
+
+  # print(dat)
+  library("ggplot2")
+  bardat1 <- ggplot(data=dat1, aes(x=variable, y=value, fill=geneLines)) +
+    geom_bar(stat="identity", position=position_dodge(), colour="black") + xlab("Treatment") + ylab("Root Length (cm)")
+
+  print(bardat1)
+
+
+
+
 
 
 }
