@@ -47,16 +47,16 @@ createRootBarG <- function(inputFile){
 
   #now need to output the data in a table and save it somewhere.
 
+  #this is the example datatable that is for showing the string
+  dataplotting <- data.frame( "GeneLines" =c("GK060G05.14", "SALK839"), "MS / DRI" =c(1.79, 1.41), "ISX / DRI"=c(0.863, 0.632))
 
-  # mydf <- data.frame( X1=c(A=2, B=4, C=1), X2=c(3,2,NA), X3=c(4,1,NA) )
-  # barplot(t(as.matrix(mydf)), beside=TRUE)
-  # print(mydf)
+  print("this is the datatable")
+
+  str(dataplotting)
 
 
-  #barplot(t(as.matrix(aveTreatmentData)), beside = TRUE)
-
-  #barplot(as.matrix(aveTreatmentData), beside=T , legend.text=T, ylim=c(0,140), ylab="height")
-
+  #this is the actual datatable that I want to plot
+  str(aveTreatmentData)
 
 
 }
