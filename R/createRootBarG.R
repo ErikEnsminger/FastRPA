@@ -1,3 +1,10 @@
+#' Plot Root Length Data
+#'
+#'  A function that plots the information
+#'
+#'     @import ggplot2
+#' @import reshape2
+#' @importFrom utils read.csv str write.csv
 install.packages("reshape2", repos = "http://cran.us.r-project.org")
 install.packages("ggplot2", repos = "http://cran.us.r-project.org")
 # precondition: the data to be plotted must have a "/" or any other non-number or non-alaphabetic character.
