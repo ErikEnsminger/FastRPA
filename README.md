@@ -44,7 +44,7 @@ the specified treatments and their corresponding gene lines (Fig. 1.D) .
 An overview of the package is illustrated below in Figure 1.:
 
 <div style="text-align:center">
-<img src="./images/FastRPA_overview.png" width="600"/>
+<img src="./man/figures/FastRPA_overview.png" width="600"/>
 <div style="text-align:left">
 
 **Need to add the package tree structure**
