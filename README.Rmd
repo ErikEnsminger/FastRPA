@@ -34,7 +34,7 @@ _*analyseRootData*_ takes in an input file (prefferably the output file from _*f
 
 _*createRootBarG*_ takes in an input file (the output file from _*analyseRootData*_ (Fig.1C)). *createRootBarG*_ creates a bar plot of the specified treatments and their corresponding gene lines (Fig. 1.D) . 
 
-An overview of the package is illustrated below in Figure 1.: 
+An overview of the package is illustrated below in Figure 1. : 
 
 
 <div style="text-align:center"><img src="./man/figures/FastRPA_overview.png" width="600"/>
