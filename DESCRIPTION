@@ -8,8 +8,13 @@ Description: FastRPA, a package to organize, analyse and interpret Arabidopsis t
     root length measurements. 
 License: MIT + file LICENSE
 Depends: R (>= 3.1.0)
-devtools::document()
+devtools: :document()
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Imports: 
+    ggplot2,
+    reshape2,
+    mclust,
+    plyr
