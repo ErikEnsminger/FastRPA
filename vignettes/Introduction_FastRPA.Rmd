@@ -1,0 +1,51 @@
+---
+title: "Introduction_FastRPA"
+author: "Erik Ensminger"
+date: "`r format(Sys.time(), '%d %b %Y')`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction_FastRPA}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+`FastRPA` is a tool for the filtering, organizing, analysing and plotting of root length measurement data. This tool enables users to select root length measurements from multiple files containing root length measurements. This allows to organize data in acentrale location from numerous data files. In addition, root measurements can be normalized according to the control Treatment. A plot can also be generated to have a simple visualization of the data. This document gives a tour of the FastRPA package. 
+
+To download **gscVisualizer**, use the following commands:
+
+```r
+require("devtools")
+devtools::install_github("ErikEnsminger/FastRPA", build_vignettes = TRUE)
+library("FastRPA")
+```
+
+To list all functions available in this package:
+
+```r
+ls("package:gscVisualizer")
+```
+
+## Components
+
+There are 3 functions in this package: `filterData`,  `analyseRootData`, and `createRootBarG`. 
+
+`filterData` allows for the user to input a file containing root length measurements, select certain root length measurements from this file and add them to a user defined output file. Repeating the `filterData` for numerous files containing different root length measurements allows for the fast collection of measurements to one file. 
+
+`analyseRootData` allows for the user to take the output file from `filterData` (which contains the all the different root measurements) and normalize the data based on a user defined control Treatment that must exist in the data set. The mean of each root length with respect to root treatment and the geneLines is then calculated. The resulting data is then exported to a new user defined output file. 
+
+`createRootBarG` allows for the bar plotting of root length measurements from the output file of `analyseRootData`, with respect to the experimental treatment and the gene lines. 
+
+
+
+```{r setup}
+library(FastRPA)
+```
