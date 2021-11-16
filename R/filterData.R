@@ -1,5 +1,5 @@
-install.packages("plyr")
-library("plyr")
+install.packages('plyr', repos = "http://cran.us.r-project.org")
+
 
 filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFile) {
 
@@ -8,6 +8,7 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
   if(!is.character(rootLines)) stop("root line must be of type character")
   if(!is.double(roi)) stop("ROIs must be a double vector")
 
+  library("plyr")
   #read the input file
   rootData <- read.csv(file = inputFile, sep = ",")
 

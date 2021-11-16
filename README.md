@@ -44,11 +44,51 @@ the specified treatments and their corresponding gene lines (Fig. 1.D) .
 An overview of the package is illustrated below in Figure 1.:
 
 <div style="text-align:center">
-
 <img src="./images/FastRPA_overview.png" width="600"/>
+<div style="text-align:left">
+
+**Need to add the package tree structure**
 
 ``` r
 ```
+
+## Tutorials
+
+## Citation for Package
+
+## Contributions
+
+The author of this package is Erik Ensminger. The **filterData**
+function makes use of split function of the `plyr` R package for binding
+data frames. The **createRootBarG** function makes use of the `reshape2`
+R package for the melting dataframes. In addition, **createRootBarG**
+function makes use of the `ggplot` R package for plotting the Bar graph
+of the root length data.
+
+## References
+
+Steipe B., ABC project (.utility 4.07) A Bioinformatics Course: Applied
+Bioinformatics
+<http://steipe.biochemistry.utoronto.ca/abc/index.php/Bioinformatics_Main_Page>
+
+Wickham H (2007). “Reshaping Data with the reshape Package.” Journal of
+Statistical Software, 21(12), 1–20. <http://www.jstatsoft.org/v21/i12/>.
+
+Wickham H (2011). “The Split-Apply-Combine Strategy for Data Analysis.”
+Journal of Statistical Software, 40(1), 1–29.
+<http://www.jstatsoft.org/v40/i01/>.
+
+Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis.
+Springer-Verlag New York. ISBN 978-3-319-24277-4,
+<https://ggplot2.tidyverse.org>.
+
+Wickham, H. and Bryan, J. (2019). R Packages (2nd edition). Newton,
+Massachusetts: O’Reilly Media. <https://r-pkgs.org/>
+
+## Acknowledgements
+
+This package was developed as part of an assessment for 2021 BCB410H:
+Applied Bioinfor- matics, University of Toronto, Toronto, CANADA.
 
 ## Example
 
