@@ -19,7 +19,7 @@ You can install the development version of FastRPA like so:
 
 ``` r
 require("devtools")
-devtools::install_github("anjalisilva/FastRPA", build_vignettes = TRUE)
+devtools::install_github("ErikEnsminger/FastRPA", build_vignettes = TRUE)
 library("FastRPA")
 ```
 
