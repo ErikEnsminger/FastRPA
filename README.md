@@ -11,8 +11,7 @@ length measurement data. Manually selecting, organizing and analysing
 data of potentially thousands of root measurements are time consuming.
 FastRPA enables a semi-automatic solution, enabling the user to select
 root length measurements from the multiple output file of FastIDR imageJ
-tool, thereby centralizing data from numerous data files. For an example
-process: check vignettes.
+tool, thereby centralizing data from numerous data files.
 
 ## Installation
 
@@ -27,6 +26,12 @@ library("FastRPA")
 Shiny app: Under construction
 
 ## Overview
+
+``` r
+ls("package:FastRPA")
+```
+
+Look into the vignettes for a specific example process flow of `FastRPA`
 
 FastRPA contains 3 functions: **filterData**, **analyseRootData**, and
 **createRootBarG**. **filterData** is the first function in the process.

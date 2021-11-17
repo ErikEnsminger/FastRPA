@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of FastRPA is to speed up the interpretation time of root length measurement data. 
-Manually selecting, organizing and analysing data of potentially thousands of root measurements are time consuming. FastRPA enables a semi-automatic solution, enabling the user to select root length measurements from the multiple output file of FastIDR imageJ tool, thereby centralizing data from numerous data files. For an example process: check vignettes. 
+Manually selecting, organizing and analysing data of potentially thousands of root measurements are time consuming. FastRPA enables a semi-automatic solution, enabling the user to select root length measurements from the multiple output file of FastIDR imageJ tool, thereby centralizing data from numerous data files. 
 
 ## Installation
 
@@ -35,6 +35,12 @@ Shiny app:
 Under construction
 
 ## Overview 
+
+``` r
+ls("package:FastRPA")
+```
+
+Look into the vignettes for a specific example process flow of `FastRPA`
 
 FastRPA contains 3 functions: _*filterData*_, _*analyseRootData*_, and _*createRootBarG*_. 
 \n 
