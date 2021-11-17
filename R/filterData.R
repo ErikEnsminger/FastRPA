@@ -68,11 +68,11 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
 
       tempFrame <- data.frame(geneLines = rootLines, placeHolder2 = rootData$Longest.Shortest.Path[i])
       names(tempFrame)[names(tempFrame) == "placeHolder2"] <- rootTreatment #this is to replace the name of the column
-
+      #bind the original data frame with new roi data frame
       filteredRootData <- rbind.fill(filteredRootData, tempFrame)
   }
 
-
+  #set the outputRootData data frame
   outputRootData <- data.frame()
   if (!file.size(outputFile) == 0) {
     outputRootData <- read.csv(file = outputFile, sep = ",")
@@ -81,6 +81,7 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
   outputRootData <- rbind.fill(outputRootData, filteredRootData)
 
   return(outputRootData)
+  #write to the output file
   write.csv(outputRootData, file = outputFile, row.names = FALSE)
 
   # print(filteredRootData)

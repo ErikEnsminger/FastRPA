@@ -31,6 +31,7 @@
 
 install.packages("reshape2", repos = "http://cran.us.r-project.org")
 install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+
 # precondition: the data to be plotted must have a "/" or any other non-number or non-alaphabetic character.
 #this function will create a bar graph with the corresponding data.
 
