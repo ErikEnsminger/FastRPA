@@ -6,6 +6,37 @@
 \usage{
 analyseRootData(inputFile, controlTreatment, outputFile)
 }
+\arguments{
+\item{inputFile}{A string representing the path for the .csv file containing Root Length Data}
+
+\item{controlTreatment}{A string representing the control Treatment included in inputFile}
+
+\item{outputFile}{A string representing the output file, to which the calculated averages will be exported}
+}
+\value{
+Output is data frame of data output file. In addition, data is exported to the outputFile
+}
 \description{
-Calculates average of Root Measurements
+Given a user defined inputFile path, which contains the GeneLines names,
+and the root length values of the control treatments, the function will
+normalize the root length measurements. For this, the user must include
+and specify which treatment in the inputFile is the control treatment.
+}
+\details{
+After calculating the average root length of the control treatment for each
+root line, and the average root length of each treatment, the treatments will
+be normalized by the control treatment average.
+
+The function will then output the new root output data to a user specified output
+file
+}
+\examples{
+\dontrun{
+#Example 1:
+# Normalizing root data and calculating average of root treatments.
+input <- system.file("extdata", "inputFileFunc2.csv", package = "FastRPA")
+}
+
+
+
 }

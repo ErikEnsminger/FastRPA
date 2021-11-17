@@ -1,3 +1,4 @@
+
 #' Calculates average of Root Measurements
 #'
 #' Given a user defined inputFile path, which contains the GeneLines names,
@@ -17,15 +18,23 @@
 #' @param outputFile A string representing the output file, to which the calculated averages will be exported
 #'
 #'
-#'@return There is no return by the function, data is exported to the outputFile
+#'@return Output is data frame of data output file. In addition, data is exported to the outputFile
 #'
-#'
-#'
+#' @examples
+#' \dontrun{
+#' #Example 1:
+#' # Normalizing root data and calculating average of root treatments.
+#' input <- system.file("extdata", "inputFileFunc2.csv", package = "FastRPA")
+#` outputFile <- system.file("extdata", "outputFileFunc2.csv", package = "FastRPA")
+#` analyseRoot <- analyseRootData(inputFile = input, controlTreatment = "WES",
+#`                             outputFile = outputFile)
+#'}
 #'
 #'
 #'
 #' @export
 #' @importFrom stats aggregate ave
+
 #Due to non-linear biolgical systems, we are analysing we must normalize the data.
 #Using a control treatment, defined by user input, we will normalize the  data.
 #Then we may find the average growth of each of the treatments to ultimatelly graph the data.
@@ -41,17 +50,14 @@
 analyseRootData <- function(inputFile, controlTreatment, outputFile){
 
   inputRootData <- read.csv(file = inputFile, sep = ",")
-  str(inputRootData) #testing purposes
   #print(inputRootData)#testing purposes
 
   inputRootData <- inputRootData[order(inputRootData$geneLines),]  #order data frame based on the first column geneLines
 
   #average for the control treatment of inputRootData
   df2 <- inputRootData
-  importFrom("stats", "aggregate", "ave")
+  #importFrom("stats", "aggregate", "ave")
   df2$ControlMean <- ave(inputRootData[[controlTreatment]], inputRootData$geneLines, FUN=function(x) mean(x, na.rm=TRUE))
-  print(df2)
-
 
   #Divide each Treatment by the control treatment average
   max <- (ncol(df2)-2)
@@ -61,15 +67,13 @@ analyseRootData <- function(inputFile, controlTreatment, outputFile){
 
     if (!(name_of_col == controlTreatment)){
       average_name_of_col <- paste(name_of_col, "/", controlTreatment)
-      print(average_name_of_col) #for testing purposes. Delete!!!!
       df2[[average_name_of_col]] <- df2[[name_of_col]] / df2$ControlMean
     }
     i = i+1
   }
 
-  # df2 <- transform(df2,  new = ISX / ControlMean)
-  print(df2)
-  # print("bye")
   write.csv(df2, file = outputFile, row.names=FALSE)
+
+  return(df2)
   #Now need to average each column for the
 }

@@ -34,6 +34,8 @@ To list all functions available in this package:
 ls("package:gscVisualizer")
 ```
 
+To view sample dataset in this package, follow the package path: 
+`FastRPA/inst/extdata/`
 ## Components
 
 There are 3 functions in this package: `filterData`,  `analyseRootData`, and `createRootBarG`. 
@@ -44,8 +46,70 @@ There are 3 functions in this package: `filterData`,  `analyseRootData`, and `cr
 
 `createRootBarG` allows for the bar plotting of root length measurements from the output file of `analyseRootData`, with respect to the experimental treatment and the gene lines. 
 
+## Example 
+Here is an example workflow using all 3 functions. All the input and output data for each functions can be found 
+under under the file path: `FastRPA/inst/extdata/`
 
+Using `filterData`: 
 
-```{r setup}
-library(FastRPA)
+Precondition the user input: Column name for root length measurements 
+must be: `Longest Shortest Path`
+
+```r
+input <- system.file("extdata", "inputFileFunc1.csv", package = "FastRPA")
+roi <- c(2,1,5)
+outputFile <- system.file("extdata", "outputFileFunc1.csv", package = "FastRPA")
+filterData <- filterData(inputFile = input, roi = roi, rootLines = "ASER.12.32",
+                           rootTreatment = "TEX", outputFile = outputFile)
 ```
+Output: 
+
+<div style="text-align:center"><img src="img1.png" width="100" height="500"/>
+<div style="text-align:left">
+
+
+Using `analyseRootData`: \n
+Precondition for the user input file: Last column in the .csv file must contain the 
+control treatment. 
+```r
+input <- system.file("extdata", "inputFileFunc2.csv", package = "FastRPA")
+  outputFile <- system.file("extdata", "outputFileFunc2.csv", package = "FastRPA")
+  analyseRoot <- analyseRootData(inputFile = input, controlTreatment = "WES",
+                           outputFile = outputFile)
+```
+Output: 
+<div style="text-align:center"><img src="img2.png" width="500" height="500"/>
+<div style="text-align:left">
+
+
+Using `createRootBar`: 
+Precondition for user input file: Columns with treatment values to be plotted
+must include `/` character 
+
+```r 
+  input <- system.file("extdata", "inputFileFunc3.csv", package = "FastRPA")
+  filterData <- createRootBarG(input)
+```
+
+Output: 
+<div style="text-align:center"><img src="img3.png" width="300" height="300"/>
+<div style="text-align:left">
+
+## Package References
+<div style="text-align:left">
+[Ensminger, E. (2022) FastRPA (Root length measurement analysis tool): an R package for organizing, analysing and visualization of plant root length measurement data) 
+](https://github.com/ErikEnsminger/FastRPA)
+
+<br>
+
+## Other References 
+<div style="text-align:left">
+Steipe B., ABC project (.utility 4.07) A Bioinformatics Course: Applied Bioinformatics http://steipe.biochemistry.utoronto.ca/abc/index.php/Bioinformatics_Main_Page
+
+Wickham H (2007). “Reshaping Data with the reshape Package.” Journal of Statistical Software, 21(12), 1–20. http://www.jstatsoft.org/v21/i12/. 
+
+Wickham H (2011). “The Split-Apply-Combine Strategy for Data Analysis.” Journal of Statistical Software, 40(1), 1–29. http://www.jstatsoft.org/v40/i01/. 
+
+Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York. ISBN 978-3-319-24277-4, https://ggplot2.tidyverse.org. 
+
+Wickham, H. and Bryan, J. (2019). R Packages (2nd edition). Newton, Massachusetts: O’Reilly Media. https://r-pkgs.org/

@@ -1,33 +1,45 @@
-#' Filter root measurements from one file to another file
+#' Filter Root length Measurements
 #'
 #' A function that takes root measurements selected by the user and adds them to
 #' a new output file specified by the user.
 #'
-#' @param inputFile A string representing the path for the input file containing root measurement data
-#' @param roi a vector containing the index of specified root measurements to be exported to the outputFile
-#' @param rootLines A string representing the root line the specified roi root measurements parameters are.
-#' @param rootTreatment A string representing the root treatment the specified roi root root measurements parameters are.
-#' @param outputFile A string representing the path for the output file to which root measurements are added
+#' @param inputFile A string representing the path for the input file containing
+#'   root measurement data
+#' @param roi a vector containing the index of specified root measurements to be
+#'   exported to the outputFile
+#' @param rootLines A string representing the root line the specified roi root
+#'   measurements parameters are.
+#' @param rootTreatment A string representing the root treatment the specified
+#'   roi root root measurements parameters are.
+#' @param outputFile A string representing the path for the output file to which
+#'   root measurements are added
 #'
-#' @return No return, specified roi paramter values are added to the user specified outputFile
+#' @return No return, specified roi paramter values are added to the user
+#'   specified outputFile
 #'
 #' @examples
-#' #this should add root measurements at index 2 and 1 of rootMeasurementData.csv file to rootOutput.csv
+#' # Example 1:
+#' # Adding two selected root measurement to output file
 #' \dontrun{
-#' filterData("~/Desktop/rootMeasurementData.csv", c(2,1), "GK","ISX", "~/Desktop/rootOutput.csv")
+#' library(plyr)
+#` input <- system.file("extdata", "inputFileFunc1.csv", package = "FastRPA")
+#` roi <- c(2,1,5)
+#` outputFile <- system.file("extdata", "outputFileFunc1.csv", package = "FastRPA")
+#` filterData <- filterData(inputFile = input, roi = roi, rootLines = "ASER.12.32",
+#`                        rootTreatment = "TEX", outputFile = outputFile)
 #' }
 #'
 #' @author Erik Ensminger \email{erik.ensminger@mail.utoronto.ca}
 #'
-#' #' @references
-#' Steipe B., ABC project (.utility 4.07) A Bioinformatics Course: Applied Bioinformatics
+#' @references Steipe B., ABC project (.utility 4.07) A Bioinformatics Course:
+#' Applied Bioinformatics
 #' \href{http://steipe.biochemistry.utoronto.ca/abc/index.php/Bioinformatics_Main_Page}{Link}.
 #'
 #' @export
 #' @import plyr
 #'
 
-install.packages('plyr', repos = "http://cran.us.r-project.org")
+#install.packages('plyr', repos = "http://cran.us.r-project.org")
 
 
 filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFile) {
@@ -46,7 +58,7 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
 
   library("plyr")
   #read the input file
-  importFrom("utils", "read.csv", "str", "write.csv")
+  #importFrom("utils", "read.csv", "str", "write.csv")
   rootData <- read.csv(file = inputFile, sep = ",")
 
   filteredRootData <- data.frame(geneLines = character(0))
@@ -68,9 +80,9 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
 
   outputRootData <- rbind.fill(outputRootData, filteredRootData)
 
+  return(outputRootData)
   write.csv(outputRootData, file = outputFile, row.names = FALSE)
 
   # print(filteredRootData)
-  # print(outputRootData)
 }
 
