@@ -24,8 +24,6 @@
 #'   Applied Bioinformatics
 #'   \href{http://steipe.biochemistry.utoronto.ca/abc/index.php/Bioinformatics_Main_Page}{Link}.
 #'
-
-#'
 #' @export
 #' @import ggplot2
 #' @import reshape2
