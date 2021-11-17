@@ -80,10 +80,10 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
 
   outputRootData <- rbind.fill(outputRootData, filteredRootData)
 
-  return(outputRootData)
+
   #write to the output file
   write.csv(outputRootData, file = outputFile, row.names = FALSE)
-
+  return(outputRootData)
   # print(filteredRootData)
 }
 
