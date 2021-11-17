@@ -11,11 +11,20 @@ length measurement data. Manually selecting, organizing and analysing
 data of potentially thousands of root measurements are time consuming.
 FastRPA enables a semi-automatic solution, enabling the user to select
 root length measurements from the multiple output file of FastIDR imageJ
-tool, thereby centralizing data from numerous data files.
+tool, thereby centralizing data from numerous data files. For an example
+process: check vignettes.
 
 ## Installation
 
 You can install the development version of FastRPA like so:
+
+``` r
+require("devtools")
+devtools::install_github("anjalisilva/FastRPA", build_vignettes = TRUE)
+library("FastRPA")
+```
+
+Shiny app: Under construction
 
 ## Overview
 
@@ -42,14 +51,16 @@ An overview of the package is illustrated below in Figure 1. :
 <img src="./inst/extdata/FastRPA_overview.png" width="600"/>
 <div style="text-align:left">
 
-**Need to add the package tree structure**
 
-``` r
-```
 
-## Tutorials
 
 ## Citation for Package
+
+<div style="text-align:left">
+
+[Ensminger, E. (2021) FastRPA (Root length measurement analysis tool):
+an R package for organizing, analysing and visualization of plant root
+length measurement data)](https://github.com/ErikEnsminger/FastRPA)
 
 ## Contributions
 

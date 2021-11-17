@@ -97,7 +97,7 @@ Output:
 
 ## Package References
 <div style="text-align:left">
-[Ensminger, E. (2022) FastRPA (Root length measurement analysis tool): an R package for organizing, analysing and visualization of plant root length measurement data) 
+[Ensminger, E. (2021) FastRPA (Root length measurement analysis tool): an R package for organizing, analysing and visualization of plant root length measurement data) 
 ](https://github.com/ErikEnsminger/FastRPA)
 
 <br>
