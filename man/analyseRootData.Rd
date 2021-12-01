@@ -35,6 +35,9 @@ file
 #Example 1:
 # Normalizing root data and calculating average of root treatments.
 input <- system.file("extdata", "inputFileFunc2.csv", package = "FastRPA")
+outputFile <- system.file("extdata", "outputFileFunc2.csv", package = "FastRPA")
+analyseRoot <- analyseRootData(inputFile = input, controlTreatment = "WES",
+                            outputFile = outputFile)
 }
 
 

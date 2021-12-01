@@ -35,6 +35,11 @@ a new output file specified by the user.
 # Adding two selected root measurement to output file
 \dontrun{
 library(plyr)
+input <- system.file("extdata", "inputFileFunc1.csv", package = "FastRPA")
+roi <- c(2,1,5)
+outputFile <- system.file("extdata", "outputFileFunc1.csv", package = "FastRPA")
+filterData <- filterData(inputFile = input, roi = roi, rootLines = "ASER.12.32",
+                       rootTreatment = "TEX", outputFile = outputFile)
 }
 
 }
