@@ -34,7 +34,7 @@
 #'
 #' @export
 #' @importFrom stats aggregate ave
-
+#'
 #Due to non-linear biolgical systems, we are analysing we must normalize the data.
 #Using a control treatment, defined by user input, we will normalize the  data.
 #Then we may find the average growth of each of the treatments to ultimatelly graph the data.
@@ -77,3 +77,4 @@ analyseRootData <- function(inputFile, controlTreatment, outputFile){
   return(df2)
   #Now need to average each column for the
 }
+# [END]

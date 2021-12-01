@@ -22,12 +22,12 @@
 #' # Adding two selected root measurement to output file
 #' \dontrun{
 #' library(plyr)
-#` input <- system.file("extdata", "inputFileFunc1.csv", package = "FastRPA")
-#` roi <- c(2,1,5)
-#` outputFile <- system.file("extdata", "outputFileFunc1.csv", package = "FastRPA")
-#` filterData <- filterData(inputFile = input, roi = roi, rootLines = "ASER.12.32",
-#`                        rootTreatment = "TEX", outputFile = outputFile)
-#' }
+#' input <- system.file("extdata", "inputFileFunc1.csv", package = "FastRPA")
+#' roi <- c(2,1,5)
+#' outputFile <- system.file("extdata", "outputFileFunc1.csv", package = "FastRPA")
+#' filterData <- filterData(inputFile = input, roi = roi, rootLines = "ASER.12.32",
+#'                        rootTreatment = "TEX", outputFile = outputFile)
+#'}
 #'
 #' @author Erik Ensminger \email{erik.ensminger@mail.utoronto.ca}
 #'
@@ -38,10 +38,6 @@
 #' @export
 #' @import plyr
 #'
-
-#install.packages('plyr', repos = "http://cran.us.r-project.org")
-
-
 filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFile) {
 
 
@@ -56,7 +52,7 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
 
   if(!is.double(roi)) stop("ROIs must be a double vector")
 
-  library("plyr")
+  #library("plyr")
   #read the input file
   #importFrom("utils", "read.csv", "str", "write.csv")
   rootData <- read.csv(file = inputFile, sep = ",")

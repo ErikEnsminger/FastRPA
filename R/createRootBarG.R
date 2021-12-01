@@ -14,8 +14,8 @@
 #' # Creating Bar plot of input data
 #' \dontrun{
 #' library(plyr)
-#` input <- system.file("extdata", "inputFileFunc3.csv", package = "FastRPA")
-#` filterData <- createRootBarG(input)
+#' input <- system.file("extdata", "inputFileFunc3.csv", package = "FastRPA")
+#' filterData <- createRootBarG(input)
 #' }
 #'
 #' @author Erik Ensminger \email{erik.ensminger@mail.utoronto.ca}
@@ -28,18 +28,6 @@
 #' @import ggplot2
 #' @import reshape2
 #' @importFrom utils read.csv str write.csv
-
-install.packages("reshape2", repos = "http://cran.us.r-project.org")
-install.packages("ggplot2", repos = "http://cran.us.r-project.org")
-
-# precondition: the data to be plotted must have a "/" or any other non-number or non-alaphabetic character.
-#this function will create a bar graph with the corresponding data.
-
-#now I want to graph the normalized data. For this, the user needs to make sure
-#that the data to be graphed has a '/' symbol in the column.
-#all other columns should not have any characters other than numbers or letters
-#Then I will average out the columns with respect to the root lines and graph out everything.
-
 createRootBarG <- function(inputFile){
 
   inputRootData <- read.csv(file = inputFile, sep = ",")
@@ -81,19 +69,15 @@ createRootBarG <- function(inputFile){
   dat <- aveTreatmentData
   colnames(dat)
 
-  library("reshape2")
+  #library("reshape2")
   dat1 <- melt(dat,id=("geneLines"))
 
 
-  library("ggplot2")
+  #library("ggplot2")
   bardat1 <- ggplot(data=dat1, aes(x=variable, y=value, fill=geneLines)) +
     geom_bar(stat="identity", position=position_dodge(), colour="black") + xlab("Treatment") + ylab("Root Length (cm)")
 
   return(bardat1)
 
-
-
-
-
-
 }
+# [END]
