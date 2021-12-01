@@ -34,7 +34,6 @@
 #'  \item{Condition.3}{Second condition, one of the root treatment columns must be control treatment, which will be used for normalizing data}
 #' }
 #' @examples
-#' @examples
 #' # Example 1:
 #' # Access raw data made available with this package
 #' outputfilteredData <- system.file("extdata", "inputFileFunc1.csv", package = "TestingPackage")
@@ -46,7 +45,7 @@
 #'
 "outputFileFunc1"
 
-# [END]
+
 
 
 
