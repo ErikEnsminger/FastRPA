@@ -1,6 +1,6 @@
 #' Root Length Measurements
 #'
-#' A file containing the raw data of the root length measurements
+#' A file containing the raw data of the root length measurements used as input for function filterData
 #'
 #' @source Ensminger, Erik
 #'
@@ -22,8 +22,8 @@
 
 #' Output File of Function 1
 #'
-#' The file outputFileFunc1 contains the filtered data outputted by the filterData() function
-#' This file may also be used as the input for function 2, analyseRootData().
+#' The file outputFileFunc1 contains the filtered data outputted by the filterData function
+#' This file may also be used as the input for function 2, analyseRootData
 #'
 #' @source Ensminger, Erik
 #'

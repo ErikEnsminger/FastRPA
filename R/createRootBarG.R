@@ -6,6 +6,7 @@
 #' @param inputFile A string representing the path for the input file containing
 #'   root measurement data. Precondition: columns with data to be plotted must
 #'   include / character. Columns of gene lines must be named "geneLines"
+#'
 #' @return A bar plot of type list
 #'
 #'
@@ -28,6 +29,7 @@
 #' @import ggplot2
 #' @import reshape2
 #' @importFrom utils read.csv str write.csv
+#'
 createRootBarG <- function(inputFile){
 
   inputRootData <- read.csv(file = inputFile, sep = ",")

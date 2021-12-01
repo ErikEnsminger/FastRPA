@@ -1,4 +1,3 @@
-
 #' Calculates average of Root Measurements
 #'
 #' Given a user defined inputFile path, which contains the GeneLines names,
@@ -18,16 +17,16 @@
 #' @param outputFile A string representing the output file, to which the calculated averages will be exported
 #'
 #'
-#'@return Output is data frame of data output file. In addition, data is exported to the outputFile
+#' @return Output is data frame of data output file. In addition, data is exported to the outputFile
 #'
 #' @examples
 #' \dontrun{
 #' #Example 1:
 #' # Normalizing root data and calculating average of root treatments.
 #' input <- system.file("extdata", "inputFileFunc2.csv", package = "FastRPA")
-#` outputFile <- system.file("extdata", "outputFileFunc2.csv", package = "FastRPA")
-#` analyseRoot <- analyseRootData(inputFile = input, controlTreatment = "WES",
-#`                             outputFile = outputFile)
+#' outputFile <- system.file("extdata", "outputFileFunc2.csv", package = "FastRPA")
+#' analyseRoot <- analyseRootData(inputFile = input, controlTreatment = "WES",
+#'                             outputFile = outputFile)
 #'}
 #'
 #'
