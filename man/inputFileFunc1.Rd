@@ -8,6 +8,7 @@
 A matrix with columns:
 \describe{
 \item{Condition.1}{First condition, Column with root length measurements must be called 'Longest Shortest Path'}
+\item{Condition.2}{Third condition, measurments of experimental root treatment must be in milimetres (mm)}
 }
 }
 \source{
@@ -22,7 +23,7 @@ A file containing the raw data of the root length measurements used as input for
 \examples{
 # Example 1:
 # Access raw data made available with this package
-inputRootLength <- system.file("extdata", "inputFileFunc1.csv", package = "TestingPackage")
+inputRootLength <- system.file("extdata", "inputFileFunc1.csv", package = "FastRPA")
 # Read data
 inputFileFunc1 <- read.csv(file = inputRootLength, header = TRUE)
 dim(inputFileFunc1) # 30  4
