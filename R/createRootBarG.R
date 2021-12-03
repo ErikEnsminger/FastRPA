@@ -31,7 +31,8 @@
 #' @importFrom utils read.csv str write.csv
 #'
 createRootBarG <- function(inputFile){
-
+  #ask for input file path and other option is ask for path.
+  #if given path do line 35, else: skip.
   inputRootData <- read.csv(file = inputFile, sep = ",")
 
 
@@ -63,13 +64,14 @@ createRootBarG <- function(inputFile){
 
 
   aveTreatmentData <- aggregate(.~ geneLines, data = inputRootData[, c('geneLines', mylist)], mean)
-  print(aveTreatmentData)
+  # print(aveTreatmentData)
+  toPrint <- aveTreatmentData
   #this is the actual datatable that I want to plot
 
 
   #now need to output the data in a table and save it somewhere.
   dat <- aveTreatmentData
-  colnames(dat)
+  #colnames(dat)
 
   #library("reshape2")
   dat1 <- melt(dat,id=("geneLines"))
@@ -79,7 +81,9 @@ createRootBarG <- function(inputFile){
   bardat1 <- ggplot(data=dat1, aes(x=variable, y=value, fill=geneLines)) +
     geom_bar(stat="identity", position=position_dodge(), colour="black") + xlab("Treatment") + ylab("Root Length (cm)")
 
-  return(bardat1)
+  RESULTS <- list(outputPlot = bardat1, outputText = toPrint)
+
+  return(RESULTS)
 
 }
 # [END]

@@ -45,22 +45,28 @@ server <- function(input, output) {
   #press the start button lead to running this reaction
   processInput <- eventReactive(eventExpr = input$button1, {
 
-    req(input$file1)
-    inFile <- input$file1
-    printer <- createRootBarG(inFile$datapath)
+    # req(input$file1)
+    # inFile <- input$file1
+    # path <- inFile$datapath
+    #printer <- createRootBarG(inFile$datapath)
+    #plot <- createRootBarG(input$file1$datapath)$outputPlot
+    #printer <- createRootBarG(input$file1$datapath)$outputText
     #check file existence
+    createRootBarG(input$file1$datapath)
   })
 
   #result plot output
   output$plot <- renderPlot ({
-    createRootBarG(processInput())
+    processInput()$outputPlot
+    #createRootBarG(processInput()$path)
   })
 
   # #text output
-  # output$textOut <- renderPrint({
-  #   if (! is.null(processInput()))
-  #     processInput()$printer
-  # })
+  output$textOut <- renderPrint({
+    if (! is.null(processInput()))
+      #processInput()$printer[2]
+      processInput()$outputText
+  })
 
   # #Data frame output
   # output$textOut1 <- renderDataTable({
