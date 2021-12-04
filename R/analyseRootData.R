@@ -14,7 +14,7 @@
 #'
 #' @param inputFile A string representing the path for the .csv file containing Root Length Data
 #' @param controlTreatment A string representing the control Treatment included in inputFile
-#' @param outputFile A string representing the output file, to which the calculated averages will be exported
+#' @param outputFile A name of a files to which the calculated averages will be exported
 #'
 #'
 #' @return Output is data frame of data output file. In addition, data is exported to the outputFile
