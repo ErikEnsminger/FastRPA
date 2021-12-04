@@ -36,10 +36,10 @@ ui <- fluidPage(
       ),
 
     #the root lines for the selected rois
-     textInput("rootLines", "Enter the name for the Root Lines of ROIs", "ex. BTR34.1"),
+     textInput("rootLines", "Enter the name for the Root Lines of ROIs", "BTR34.1"),
 
     #the root treatment for the selected rois
-   textInput("rootTreatment", "Enter the name for the Root Treatment of ROIs", "ex. MEX"),
+   textInput("rootTreatment", "Enter the name for the Root Treatment of ROIs", "MEX"),
 
    #outputFile
    fileInput("fileFunc1Out", "Choose the .csv output file for filterData() ", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
@@ -54,6 +54,9 @@ tags$p("-------------------------------------------------"),
 #================== Input for function 2: analyseRootData() ==================
        tags$p("Use the following parameters to use function analyseRootData()"),
       # input
+      fileInput("fileFunc2In", "Choose the .csv output file for analyseRootData() ", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
+      textInput("controlTreatment", "Enter the Control Treatment", "WES"),
+      fileInput("fileFunc2Out", "Choose the .csv output file for analyseRootData() ", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
 
 
 tags$p("-------------------------------------------------"),
@@ -87,9 +90,6 @@ tags$p("-------------------------------------------------"),
 )
 
 
-
-
-
 # Define server logic for random distribution app ----
 server <- function(input, output) {
 
@@ -103,35 +103,51 @@ server <- function(input, output) {
     }
     else if (input$functionType == "filterData"){
 
-      dt <- filterData(input$fileFunc1In$datapath, as.numeric(input$roi), input$rootLines, input$rootTreatment, input$fileFunc1Out$datapath)
-      dt
+      filterData(input$fileFunc1In$datapath, as.numeric(input$roi), input$rootLines, input$rootTreatment, input$fileFunc1Out$datapath)
       complete <- "process complete"
       print(complete)
+      print(as.numeric(input$roi))
     }
+    else { #this means that input$functionType == "filterData" is TRUE
+      analyseRootData(input$fileFunc2In$datapath, input$controlTreatment, input$fileFunc2Out$datapath)
+
+      #write.csv(df2, file = outputFile, row.names=FALSE)
+      }
 
   })
 
   # text output for analyseRootBarG
   output$plot <- renderPlot ({
+    validate(need(input$functionType=="createRootBarG", message=FALSE))
     processInput()$outputPlot
     #createRootBarG(processInput()$path)
   })
 
   # text output for createRooBarG
   output$textOut <- renderPrint({
+    validate(need(input$functionType=="createRootBarG", message=FALSE))
     if (! is.null(processInput()))
       processInput()$outputText
   })
 
-  # output$textOut2 <- renderPrint({
-  #   processInput()
-  # })
-  #
-  # #Data frame output
-  # output$textOut3 <- renderDataTable({
-  #   if (! is.null(processInput()))
-  #     processInput()
-  # })
+  #Data frame output for filterData
+  output$textOut2 <- renderPrint({
+    validate(need(input$functionType=="filterData", message=FALSE))
+    processInput()
+   })
+
+  #Data frame output for filterData
+  output$textOut3 <- renderDataTable({
+    validate(need(input$functionType=="filterData", message=FALSE))
+    if (! is.null(processInput()))
+      processInput()
+  })
+
+  output$textOut1 <- renderDataTable({
+    validate(need(input$functionType=="analyseRootData", message=FALSE))
+    if (! is.null(processInput()))
+      processInput()
+  })
 
 }
 

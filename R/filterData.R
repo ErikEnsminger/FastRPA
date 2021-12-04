@@ -14,8 +14,7 @@
 #' @param outputFile A string representing the path for the output file to which
 #'   root measurements are added
 #'
-#' @return No return, specified roi paramter values are added to the user
-#'   specified outputFile
+#' @return output is a dataframe which will also be exported to outputFile
 #'
 #' @examples
 #' # Example 1:
