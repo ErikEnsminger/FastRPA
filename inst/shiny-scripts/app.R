@@ -1,4 +1,5 @@
 ui <- fluidPage(
+
   # App title ----
   titlePanel(tags$h1(tags$b("FastRPA:"),"Plant Root Measurement filtering, analysis and interpretation")),
 
@@ -27,14 +28,7 @@ ui <- fluidPage(
        fileInput("fileFunc1In", "Choose a .csv input file for filterData() ", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
 
       #vector input for ROI's
-      selectizeInput(
-        "roi"
-        , "Enter the ROIs to filter by filterData()"
-        , choices = NULL
-        , multiple = TRUE
-        , options = list(create = TRUE)
-      ),
-
+    textAreaInput("list","Enter list of ROIs (1 space between numbers)", "3 4 5"),
     #the root lines for the selected rois
      textInput("rootLines", "Enter the name for the Root Lines of ROIs", "BTR34.1"),
 
@@ -73,9 +67,12 @@ tags$p("-------------------------------------------------"),
 
       br(),
 
+
     ), # End of side pannel
 
     mainPanel(
+
+      downloadButton("downloadb", "Download .csv"),
 
       # Output: Tabet
       tabsetPanel(type = "tabs",
@@ -103,10 +100,10 @@ server <- function(input, output) {
     }
     else if (input$functionType == "filterData"){
 
-      filterData(input$fileFunc1In$datapath, as.numeric(input$roi), input$rootLines, input$rootTreatment, input$fileFunc1Out$datapath)
-      complete <- "process complete"
-      print(complete)
-      print(as.numeric(input$roi))
+      filterData(input$fileFunc1In$datapath,as.numeric(strsplit(input$list,' ')[[1]]), input$rootLines, input$rootTreatment, input$fileFunc1Out$datapath)
+      # complete <- "process complete"
+      # print(complete)
+      # print(as.numeric(input$roi))
     }
     else { #this means that input$functionType == "filterData" is TRUE
       analyseRootData(input$fileFunc2In$datapath, input$controlTreatment, input$fileFunc2Out$datapath)
@@ -123,6 +120,7 @@ server <- function(input, output) {
     #createRootBarG(processInput()$path)
   })
 
+
   # text output for createRooBarG
   output$textOut <- renderPrint({
     validate(need(input$functionType=="createRootBarG", message=FALSE))
@@ -130,19 +128,30 @@ server <- function(input, output) {
       processInput()$outputText
   })
 
-  #Data frame output for filterData
-  output$textOut2 <- renderPrint({
-    validate(need(input$functionType=="filterData", message=FALSE))
-    processInput()
-   })
 
   #Data frame output for filterData
   output$textOut3 <- renderDataTable({
     validate(need(input$functionType=="filterData", message=FALSE))
     if (! is.null(processInput()))
       processInput()
+      #write.csv(processInput()$df2, file = input$fileFunc1Out$datapath, row.names = FALSE)
   })
 
+  output$downloadb <- downloadHandler(
+
+    #if (! is.null(processInput()))
+    filename = function() {
+      #paste(input$fileFunc1Out, ".csv")
+      paste("hello", ".csv")
+      },
+
+    content = function(file) {
+      write.csv(processInput(), file, row.names = FALSE)
+
+    })
+
+
+  #Data frame output for analyseRootData
   output$textOut1 <- renderDataTable({
     validate(need(input$functionType=="analyseRootData", message=FALSE))
     if (! is.null(processInput()))
