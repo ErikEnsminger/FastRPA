@@ -142,7 +142,7 @@ server <- function(input, output) {
     #if (! is.null(processInput()))
     filename = function() {
       #paste(input$fileFunc1Out, ".csv")
-      paste("hello", ".csv")
+      paste0("fileToBeExported", ".csv")
       },
 
     content = function(file) {
