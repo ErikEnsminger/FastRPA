@@ -7,8 +7,11 @@
 #'   root measurement data. Precondition: columns with data to be plotted must
 #'   include / character. Columns of gene lines must be named "geneLines"
 #'
-#' @return A bar plot of type list
-#'
+#' @return Returns a list object with results
+#' \itemize{
+#' \item outputPlot - A bar plot with mean root growth of root Treamtent with respect to root Lines
+#' \item outputText - the data frame of the raw data used to produce outputPlot
+#' }
 #'
 #' @examples
 #' # Example 1:
@@ -17,6 +20,8 @@
 #' library(plyr)
 #' input <- system.file("extdata", "inputFileFunc3.csv", package = "FastRPA")
 #' filterData <- createRootBarG(input)
+#' filterData$outputPlot  # outputs the plot when called
+#' filterData$outputText  # returns the dataframe
 #' }
 #'
 #' @author Erik Ensminger \email{erik.ensminger@mail.utoronto.ca}
@@ -31,6 +36,10 @@
 #' @importFrom utils read.csv str write.csv
 #'
 createRootBarG <- function(inputFile){
+
+  #check the user input
+  if(!is.character(inputFile)) stop("inputFile must be of type character")
+
   #ask for input file path and other option is ask for path.
   #if given path do line 35, else: skip.
   inputRootData <- read.csv(file = inputFile, sep = ",")
@@ -64,20 +73,19 @@ createRootBarG <- function(inputFile){
 
 
   aveTreatmentData <- aggregate(.~ geneLines, data = inputRootData[, c('geneLines', mylist)], mean)
-  # print(aveTreatmentData)
+
   toPrint <- aveTreatmentData
-  #this is the actual datatable that I want to plot
+
 
 
   #now need to output the data in a table and save it somewhere.
   dat <- aveTreatmentData
-  #colnames(dat)
 
-  #library("reshape2")
+
   dat1 <- melt(dat,id=("geneLines"))
 
 
-  #library("ggplot2")
+
   bardat1 <- ggplot(data=dat1, aes(x=variable, y=value, fill=geneLines)) +
     geom_bar(stat="identity", position=position_dodge(), colour="black") + xlab("Treatment") + ylab("Root Length (cm)")
 

@@ -11,7 +11,7 @@
 #' }
 #' @examples
 #' # Example 1:
-#' # Access raw data made available with this package
+#' # Access raw data made available with this package.
 #' inputRootLength <- system.file("extdata", "inputFileFunc1.csv", package = "FastRPA")
 #' # Read data
 #' inputFileFunc1 <- read.csv(file = inputRootLength, header = TRUE)

@@ -11,7 +11,7 @@ analyseRootData(inputFile, controlTreatment, outputFile)
 
 \item{controlTreatment}{A string representing the control Treatment included in inputFile}
 
-\item{outputFile}{A string representing the output file, to which the calculated averages will be exported}
+\item{outputFile}{A name of a files to which the calculated averages will be exported}
 }
 \value{
 Output is data frame of data output file. In addition, data is exported to the outputFile
@@ -34,12 +34,11 @@ file
 \dontrun{
 #Example 1:
 # Normalizing root data and calculating average of root treatments.
+
 input <- system.file("extdata", "inputFileFunc2.csv", package = "FastRPA")
 outputFile <- system.file("extdata", "outputFileFunc2.csv", package = "FastRPA")
 analyseRoot <- analyseRootData(inputFile = input, controlTreatment = "WES",
                             outputFile = outputFile)
 }
-
-
 
 }

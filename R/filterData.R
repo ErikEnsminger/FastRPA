@@ -14,7 +14,7 @@
 #' @param outputFile A string representing the path for the output file to which
 #'   root measurements are added
 #'
-#' @return output is a dataframe which will also be exported to outputFile
+#' @return return is a dataframe which will also be exported to outputFile
 #'
 #' @examples
 #' # Example 1:
@@ -53,7 +53,6 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
 
   #library("plyr")
   #read the input file
-  #importFrom("utils", "read.csv", "str", "write.csv")
   rootData <- read.csv(file = inputFile, sep = ",")
 
   filteredRootData <- data.frame(geneLines = character(0))
@@ -80,6 +79,5 @@ filterData <- function(inputFile, roi = c(), rootLines, rootTreatment, outputFil
   write.csv(outputRootData, file = outputFile, row.names = FALSE)
 
   return(outputRootData)
-  # print(filteredRootData)
 }
 # [END]

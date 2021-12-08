@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 `FastRPA` is a tool for the filtering, organizing, analysing and plotting of root length measurement data. This tool enables users to select root length measurements from multiple files containing root length measurements. This allows to organize data in acentrale location from numerous data files. In addition, root measurements can be normalized according to the control Treatment. A plot can also be generated to have a simple visualization of the data. This document gives a tour of the FastRPA package. 
 
-To download **gscVisualizer**, use the following commands:
+To download **FastRPA**, use the following commands:
 
 ```r
 require("devtools")
@@ -46,11 +46,12 @@ There are 3 functions in this package: `filterData`,  `analyseRootData`, and `cr
 
 `createRootBarG` allows for the bar plotting of root length measurements from the output file of `analyseRootData`, with respect to the experimental treatment and the gene lines. 
 
-## Example 
+## Example
+
 Here is an example workflow using all 3 functions. All the input and output data for each functions can be found 
 under under the file path: `FastRPA/inst/extdata/`
 
-Using `filterData`: 
+Using `filterData`: <br />
 
 Precondition the user input: Column name for root length measurements 
 must be: `Longest Shortest Path`
@@ -62,13 +63,15 @@ outputFile <- system.file("extdata", "outputFileFunc1.csv", package = "FastRPA")
 filterData <- filterData(inputFile = input, roi = roi, rootLines = "ASER.12.32",
                            rootTreatment = "TEX", outputFile = outputFile)
 ```
-Output: 
+** Output: **
 
 <div style="text-align:center"><img src="img1.png" width="100" height="500"/>
 <div style="text-align:left">
 
+`Output Explanation:` Here column 1 contains the gene lines, in this case *ASER.12.32* 
+The remaining columns will contain the respective root Treatments with the rows containing the root length measurements (mm). 
 
-Using `analyseRootData`: \n
+Using `analyseRootData`: <br />
 Precondition for the user input file: Last column in the .csv file must contain the 
 control treatment. 
 ```r
@@ -77,12 +80,13 @@ input <- system.file("extdata", "inputFileFunc2.csv", package = "FastRPA")
   analyseRoot <- analyseRootData(inputFile = input, controlTreatment = "WES",
                            outputFile = outputFile)
 ```
-Output: 
+**Output:**
 <div style="text-align:center"><img src="img2.png" width="500" height="500"/>
 <div style="text-align:left">
 
+<br /> 
 
-Using `createRootBar`: 
+Using `createRootBar`: <br />
 Precondition for user input file: Columns with treatment values to be plotted
 must include `/` character 
 
@@ -91,7 +95,7 @@ must include `/` character
   filterData <- createRootBarG(input)
 ```
 
-Output: 
+** Output: ** 
 <div style="text-align:center"><img src="img3.png" width="300" height="300"/>
 <div style="text-align:left">
 

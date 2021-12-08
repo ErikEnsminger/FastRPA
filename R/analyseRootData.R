@@ -16,46 +16,44 @@
 #' @param controlTreatment A string representing the control Treatment included in inputFile
 #' @param outputFile A name of a files to which the calculated averages will be exported
 #'
-#'
 #' @return Output is data frame of data output file. In addition, data is exported to the outputFile
 #'
 #' @examples
 #' \dontrun{
 #' #Example 1:
 #' # Normalizing root data and calculating average of root treatments.
+#' #file inputFileFunc2, first column are the gene Lines, MEX, TEX and WES columns are 3 differnet root treatments
 #' input <- system.file("extdata", "inputFileFunc2.csv", package = "FastRPA")
 #' outputFile <- system.file("extdata", "outputFileFunc2.csv", package = "FastRPA")
 #' analyseRoot <- analyseRootData(inputFile = input, controlTreatment = "WES",
 #'                             outputFile = outputFile)
 #'}
 #'
-#'
-#'
 #' @export
 #' @importFrom stats aggregate ave
 #'
-#Due to non-linear biolgical systems, we are analysing we must normalize the data.
-#Using a control treatment, defined by user input, we will normalize the  data.
-#Then we may find the average growth of each of the treatments to ultimatelly graph the data.
-
-
-#Note: Graphing data will be the next function. Not this one.
-
-#first: Calculate average of the control treatment for each root line. this should be a new column
-#named control average. and the column has all the same values
-
-#then divide each treatment/avg of control.
 
 analyseRootData <- function(inputFile, controlTreatment, outputFile){
 
-  inputRootData <- read.csv(file = inputFile, sep = ",")
-  #print(inputRootData)#testing purposes
+  #check the user input
+  if(!is.character(inputFile)) stop("inputFile must be of type character")
 
+  if(!is.character(outputFile)) stop("exportFile must be of type character")
+
+  if(!is.character(controlTreatment)) stop("root line must be of type character")
+
+
+  inputRootData <- read.csv(file = inputFile, sep = ",")
+
+
+  #first: Calculate average of the control treatment for each root line. this should be a new column
+  #named control average. and the column has all the same values
+  #then divide each treatment/avg of control.
   inputRootData <- inputRootData[order(inputRootData$geneLines),]  #order data frame based on the first column geneLines
 
   #average for the control treatment of inputRootData
   df2 <- inputRootData
-  #importFrom("stats", "aggregate", "ave")
+
   df2$ControlMean <- ave(inputRootData[[controlTreatment]], inputRootData$geneLines, FUN=function(x) mean(x, na.rm=TRUE))
 
   #Divide each Treatment by the control treatment average
@@ -71,9 +69,9 @@ analyseRootData <- function(inputFile, controlTreatment, outputFile){
     i = i+1
   }
 
-  write.csv(df2, file = outputFile, row.names=FALSE)
+  write.csv(df2, file = outputFile, row.names=FALSE) #write the dataframe to the output file
 
-  return(df2)
-  #Now need to average each column for the
+  return(df2) #return the dataframe
+
 }
 # [END]

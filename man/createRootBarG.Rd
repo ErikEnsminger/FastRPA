@@ -12,7 +12,11 @@ root measurement data. Precondition: columns with data to be plotted must
 include / character. Columns of gene lines must be named "geneLines"}
 }
 \value{
-A bar plot of type list
+Returns a list object with results
+\itemize{
+\item outputPlot - A bar plot with mean root growth of root Treamtent with respect to root Lines
+\item outputText - the data frame of the raw data used to produce outputPlot
+}
 }
 \description{
 A function that plots the root length paramters based on treatment and gene
@@ -25,6 +29,8 @@ Lines.
 library(plyr)
 input <- system.file("extdata", "inputFileFunc3.csv", package = "FastRPA")
 filterData <- createRootBarG(input)
+filterData$outputPlot  # outputs the plot when called
+filterData$outputText  # returns the dataframe
 }
 
 }

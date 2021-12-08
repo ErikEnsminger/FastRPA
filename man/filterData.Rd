@@ -23,8 +23,7 @@ roi root root measurements parameters are.}
 root measurements are added}
 }
 \value{
-No return, specified roi paramter values are added to the user
-specified outputFile
+return is a dataframe which will also be exported to outputFile
 }
 \description{
 A function that takes root measurements selected by the user and adds them to
