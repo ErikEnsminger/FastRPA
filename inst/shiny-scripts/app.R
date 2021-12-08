@@ -9,8 +9,9 @@ ui <- fluidPage(
     # Sidebar panel for inputs ----
     sidebarPanel(
 
-      tags$p("The shiny app allows user to choose a input file, the app
-             will plot the root measurements with respect to treatment type and gene lines."),
+      tags$p("The shiny app allows the user to use all three functions: filterData(), analyseRootData(), createRootBarG().
+             To start, select which function you would like to use. Then proceed to section for the each of the function inputs.
+             Pres Start! when you are ready to run the function "),
 
       tags$p("NOTE: Input and Output file MUST be of .csv format"),
       tags$p("NOTE 2: filterData() and analyseRootData() will not automatically
@@ -25,7 +26,7 @@ ui <- fluidPage(
 
 #================== Input for function 1: filterData() ==================
     #sidebarPanel(
-       tags$h5("Use the following paramter inputs if you wish to use function filterData()"),
+       tags$h5("Use the following 5 paramter input fields to use function filterData()"),
        #inputFile
        fileInput("fileFunc1In", "Choose a .csv input file for filterData() ", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
 
@@ -48,7 +49,7 @@ tags$p("-------------------------------------------------"),
 
 
 #================== Input for function 2: analyseRootData() ==================
-       tags$h5("Use the following inputs to use function analyseRootData()"),
+       tags$h5("Use the following 3 paramter input fields to use function analyseRootData()"),
       # input
       fileInput("fileFunc2In", "Choose the .csv output file for analyseRootData() ", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
       textInput("controlTreatment", "Enter the Control Treatment", "WES"),
@@ -57,7 +58,7 @@ tags$p("-------------------------------------------------"),
 
 tags$p("-------------------------------------------------"),
 #================== Input for function 3: createRootBarG() ==================
-      tags$h5("Use theses parameter inputs if you wish to use function createRootBarG()"),
+      tags$h5("Use theses parameter input fields to to use function createRootBarG()"),
       # input
       fileInput("file1", "Choose .csv file for createRootBarG() ", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
 

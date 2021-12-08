@@ -87,7 +87,7 @@ createRootBarG <- function(inputFile){
 
 
   bardat1 <- ggplot(data=dat1, aes(x=variable, y=value, fill=geneLines)) +
-    geom_bar(stat="identity", position=position_dodge(), colour="black") + xlab("Treatment") + ylab("Root Length (cm)")
+    geom_bar(stat="identity", position=position_dodge(), colour="black") + xlab("Treatment") + ylab("Root Length (mm)")
 
   RESULTS <- list(outputPlot = bardat1, outputText = toPrint)
 
