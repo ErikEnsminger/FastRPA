@@ -47,6 +47,11 @@ Look into the vignettes for a specific example process flow:
 browseVignettes("FastRPA")
 ```
 
+An overview of the pacakge is illustrated below.
+<div style="text-align:center">
+<img src="./inst/extdata/package_overview.png" width="600"/>
+<div style="text-align:left">
+
 FastRPA contains 3 functions: **filterData**, **analyseRootData**, and
 **createRootBarG**. **filterData** is the first function in the process.
 As input for **filterData** the user must specify a column index of the
@@ -62,9 +67,9 @@ data to the desired output file (Fig. 1C).
 
 **createRootBarG** takes in an input file (the output file from
 **analyseRootData** (Fig.1C)). *createRootBarG*\_ creates a bar plot of
-the specified treatments and their corresponding gene lines (Fig. 1.D) .
+the specified treatments and their corresponding gene lines (Fig. 1.D).
 
-An overview of the package is illustrated below in Figure 1. :
+An overview of the package R functions illustrated below in Figure 1.:
 
 <div style="text-align:center">
 <img src="./inst/extdata/FastRPA_overview.png" width="600"/>

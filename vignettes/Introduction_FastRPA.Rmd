@@ -31,7 +31,7 @@ library("FastRPA")
 To list all functions available in this package:
 
 ```r
-ls("package:gscVisualizer")
+ls("package:FastRPA")
 ```
 To view sample dataset in this package: 
 ```r

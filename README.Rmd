@@ -49,16 +49,18 @@ Look into the vignettes for a specific example process flow:
 ``` r
 browseVignettes("FastRPA")
 ```
+An overview of the pacakge is illustrated below. 
+<div style="text-align:center"><img src="./inst/extdata/package_overview.png" width="600"/>
+<div style="text-align:left">
 
 FastRPA contains 3 functions: _*filterData*_, _*analyseRootData*_, and _*createRootBarG*_. 
 \n 
 _*filterData*_ is the first function in the process. As input for _*filterData*_ the user must specify a column index of the root measurements to be extracted, the .csv input file (Fig.1 A.i. and Fig.1 A.ii.) , an output file, and the Treatment type used on the roots.It will allow the user to select different Root length measurements and the corresponding Gene Lines from a user defined .csv files. 
 _*analyseRootData*_ takes in an input file (prefferably the output file from _*filterData*_ Fig. 1B), the control Treatment, and an output file. _*analyseRootData*_ will then based on the indciated controlTreatment normalize each of the treatment data and output the data to the desired output file (Fig. 1C).
 
-_*createRootBarG*_ takes in an input file (the output file from _*analyseRootData*_ (Fig.1C)). *createRootBarG*_ creates a bar plot of the specified treatments and their corresponding gene lines (Fig. 1.D) . 
+_*createRootBarG*_ takes in an input file (the output file from _*analyseRootData*_ (Fig.1C)). *createRootBarG*_ creates a bar plot of the specified treatments and their corresponding gene lines (Fig. 1.D).
 
-An overview of the package is illustrated below in Figure 1. : 
-
+An overview of the package R functions illustrated below in Figure 1.: 
 
 <div style="text-align:center"><img src="./inst/extdata/FastRPA_overview.png" width="600"/>
 <div style="text-align:left">
@@ -93,3 +95,5 @@ This package was developed as part of an assessment for 2021 BCB410H: Applied Bi
 <div style="text-align:left">
 [Ensminger, E. (2021) FastRPA (Root length measurement analysis tool): an R package for organizing, analysing and visualization of plant root length measurement data) 
 ](https://github.com/ErikEnsminger/FastRPA)
+
+
