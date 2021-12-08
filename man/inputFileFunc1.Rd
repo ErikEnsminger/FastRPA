@@ -22,7 +22,7 @@ A file containing the raw data of the root length measurements used as input for
 }
 \examples{
 # Example 1:
-# Access raw data made available with this package
+# Access raw data made available with this package.
 inputRootLength <- system.file("extdata", "inputFileFunc1.csv", package = "FastRPA")
 # Read data
 inputFileFunc1 <- read.csv(file = inputRootLength, header = TRUE)
