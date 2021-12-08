@@ -6,12 +6,17 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
+## Description
+
 The goal of FastRPA is to speed up the interpretation time of root
 length measurement data. Manually selecting, organizing and analysing
 data of potentially thousands of root measurements are time consuming.
 FastRPA enables a semi-automatic solution, enabling the user to select
 root length measurements from the multiple output file of FastIDR imageJ
-tool, thereby centralizing data from numerous data files.
+tool, thereby centralizing data from numerous data files. This package
+was developed using `R version 4.1.1 (2021-08-10`,
+`Platform: x86_64-apple-darwin17.0 (64-bit)` and
+`Running under: macOS Big Sur 11.4`
 
 ## Installation
 
@@ -23,15 +28,24 @@ devtools::install_github("ErikEnsminger/FastRPA", build_vignettes = TRUE)
 library("FastRPA")
 ```
 
-Shiny app: Under construction
+Shiny app:
+
+``` r
+FastRPA::runFastRPA() 
+```
 
 ## Overview
 
 ``` r
 ls("package:FastRPA")
+data(package = "FastRPA")
 ```
 
-Look into the vignettes for a specific example process flow of `FastRPA`
+Look into the vignettes for a specific example process flow:
+
+``` r
+browseVignettes("FastRPA")
+```
 
 FastRPA contains 3 functions: **filterData**, **analyseRootData**, and
 **createRootBarG**. **filterData** is the first function in the process.
@@ -57,16 +71,6 @@ An overview of the package is illustrated below in Figure 1. :
 <div style="text-align:left">
 
 
-
-
-## Citation for Package
-
-<div style="text-align:left">
-
-[Ensminger, E. (2021) FastRPA (Root length measurement analysis tool):
-an R package for organizing, analysing and visualization of plant root
-length measurement data)](https://github.com/ErikEnsminger/FastRPA)
-
 ## Contributions
 
 The author of this package is Erik Ensminger. The **filterData**
@@ -82,21 +86,34 @@ Steipe B., ABC project (.utility 4.07) A Bioinformatics Course: Applied
 Bioinformatics
 <http://steipe.biochemistry.utoronto.ca/abc/index.php/Bioinformatics_Main_Page>
 
-Wickham H (2007). “Reshaping Data with the reshape Package.” Journal of
-Statistical Software, 21(12), 1–20. <http://www.jstatsoft.org/v21/i12/>.
+R Core Team (2021). R: A language and environment for statistical
+computing. R Foundation for Statistical Computing, Vienna, Austria.
+<https://www.R-project.org/>
+
+Wickham H (2007). “Reshaping Data with the reshape Package.” *Journal of
+Statistical Software*, 21(12), 1–20.
+<http://www.jstatsoft.org/v21/i12/>.
 
 Wickham H (2011). “The Split-Apply-Combine Strategy for Data Analysis.”
-Journal of Statistical Software, 40(1), 1–29.
+*Journal of Statistical Software*, 40(1), 1–29.
 <http://www.jstatsoft.org/v40/i01/>.
 
 Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis.
-Springer-Verlag New York. ISBN 978-3-319-24277-4,
+*Springer-Verlag* New York. ISBN 978-3-319-24277-4,
 <https://ggplot2.tidyverse.org>.
 
-Wickham, H. and Bryan, J. (2019). R Packages (2nd edition). Newton,
+Wickham, H. and Bryan, J. (2019). *R Packages* (2nd edition). Newton,
 Massachusetts: O’Reilly Media. <https://r-pkgs.org/>
 
 ## Acknowledgements
 
 This package was developed as part of an assessment for 2021 BCB410H:
 Applied Bioinfor- matics, University of Toronto, Toronto, CANADA.
+
+## Citation for Package
+
+<div style="text-align:left">
+
+[Ensminger, E. (2021) FastRPA (Root length measurement analysis tool):
+an R package for organizing, analysing and visualization of plant root
+length measurement data)](https://github.com/ErikEnsminger/FastRPA)

@@ -13,17 +13,19 @@ ui <- fluidPage(
              will plot the root measurements with respect to treatment type and gene lines."),
 
       tags$p("NOTE: Input and Output file MUST be of .csv format"),
-
+      tags$p("NOTE 2: filterData() and analyseRootData() will not automatically
+             export generated Data to output file. To download data click 'Download .csv' on the right, once the functions were run"),
       selectInput("functionType", "Select which function to use", c("filterData", "analyseRootData", "createRootBarG")),
 
       tags$br(),
+
     #), #closing bracket for sidbarPanel
     tags$p("-------------------------------------------------"),
 
 
 #================== Input for function 1: filterData() ==================
     #sidebarPanel(
-       tags$h5("Use parameter inputs if you wish to use function filterData()"),
+       tags$h5("Use the following paramter inputs if you wish to use function filterData()"),
        #inputFile
        fileInput("fileFunc1In", "Choose a .csv input file for filterData() ", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
 
@@ -46,7 +48,7 @@ tags$p("-------------------------------------------------"),
 
 
 #================== Input for function 2: analyseRootData() ==================
-       tags$p("Use the following parameters to use function analyseRootData()"),
+       tags$h5("Use the following inputs to use function analyseRootData()"),
       # input
       fileInput("fileFunc2In", "Choose the .csv output file for analyseRootData() ", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
       textInput("controlTreatment", "Enter the Control Treatment", "WES"),
@@ -55,9 +57,9 @@ tags$p("-------------------------------------------------"),
 
 tags$p("-------------------------------------------------"),
 #================== Input for function 3: createRootBarG() ==================
-      tags$p("Use theses parameter inputs if you wish to use function createRootBarG()"),
+      tags$h5("Use theses parameter inputs if you wish to use function createRootBarG()"),
       # input
-      fileInput("file1", "Choose FASTA file", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
+      fileInput("file1", "Choose .csv file for createRootBarG() ", accept = c("text/csv", "text/comma-separated-values,text/plain",".csv")),
 
 
 tags$p("-------------------------------------------------"),
@@ -162,4 +164,5 @@ server <- function(input, output) {
 
 shinyApp(ui = ui, server = server)
 
+# [END]
 
