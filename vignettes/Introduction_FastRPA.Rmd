@@ -33,12 +33,6 @@ To list all functions available in this package:
 ```r
 ls("package:gscVisualizer")
 ```
-
-To view other vignettes of the package: 
-```r
-browseVignettes("FastRPA")
-```
-
 To view sample dataset in this package: 
 ```r
 data(package = "FastRPA")
