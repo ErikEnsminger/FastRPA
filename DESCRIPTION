@@ -2,8 +2,8 @@ Package: FastRPA
 Type: Package
 Title: Analysis tool for  root length measurements 
 Version: 0.1.0
-Author: Erik  Ensminger 
-Maintainer: The package maintainer <erik.ensminger@mail.utoronto.ca>
+Authors@R: person("E", "Ensminger", email = "erik.ensminger@mail.utoronto.ca", role = c("aut", "cre"))
+Maintainer: Erik Ensminger <erik.ensminger@mail.utoronto.ca>
 Description: FastRPA, a package to organize, analyse and interpret
     root length measurements. The final goal is to plot the root growth data
     to compare root treatments in respect to gene lines. 
